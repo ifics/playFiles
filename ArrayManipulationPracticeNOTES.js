@@ -68,7 +68,8 @@
 
 
 
-/*THESE ARE USEFUL intersect / xor /  union / 
+/*******************************************************************************
+THESE ARE USEFUL for ARRAYs
 
 _.zip takes an array and combines it into a new array based on its index value. all elements in the 
 0 index get a new array and so on
@@ -90,16 +91,28 @@ _.xor takes away duplicates and prints a new array with just the unique ones.
 
 _.chunk takes a large array and group it together based on a number you provide. 
 _.chunk([1,2,3,4,5,6,7,8], 3); = [1,2,3] [4,5,6] [7,8,9] 
-*/
+
+_.default adds into arrays a default set of values. It will not add the defaults twice. It will skip.
+
+_.merge similar but will overwrite values. This can have a function passed as a parameter to handle what happens
+in the merge 
+
+_.after(4, function()) says to call a function the amount of times first assigned, then after those run the amount of
+times, it runs the funciton after. So run the first function 4 times, then run the next function. 
+
+_.size takes the size of a string, object, or array and gives you the total index value. 4 items, gives you 3 total
+_.size[1,2,3,4] = 3. This works on strings as well, it counts every character. when .length cant work because of the 
+info within, use this. 
+
+_.keys _.values. This prints either the key, or value of an object. 
 
 
-
-
-
-
+********************************************************************************/
 
 
 //_.FINDKEY: this searches for an exact match of what you provided and returns the key value of the first one. 
+
+
 var _ = require('lodash')
 
 var users = {
@@ -133,36 +146,7 @@ console.log(_.findKey(users, { 'age': 60, 'funny': true}));
 
 
 
-// console.log(_.findKey(users, { 'age': 65, 'funny': false}));
-// (users, { 'age': 20, 'dummy': true }))
 
-// _.findKey(users, { 'age': 1, 'active': true });
-// → 'pebbles'
-
-//_.FIND
-
-// var users = [
-//   { 'user': 'barney',  'age': 36, 'active': true },
-//   { 'user': 'fred',    'age': 40, 'active': false },
-//   { 'user': 'pebbles', 'age': 1,  'active': true }
-// ];
-
-// _.result(_.find(users, function(chr) {
-//   return chr.age < 40;
-// }), 'user');
-// // → 'barney'
-
-// // using the `_.matches` callback shorthand
-// _.result(_.find(users, { 'age': 1, 'active': true }), 'user');
-// // → 'pebbles'
-
-// // using the `_.matchesProperty` callback shorthand
-// _.result(_.find(users, 'active', false), 'user');
-// // → 'fred'
-
-// // using the `_.property` callback shorthand
-// _.result(_.find(users, 'active'), 'user');
-// // → 'barney'
 
 
 
